@@ -1,4 +1,4 @@
-;;; say-what-im-doing.el --- 
+;;; say-what-im-doing.el --- dictate what you're doing with text to speech
 ;; 
 ;; Filename: say-what-im-doing.el
 ;; Description: Make emacs say what you're currently doing with text-to-speech
@@ -17,9 +17,9 @@
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
-;;; Commentary: 
+;;; Commentary:
 ;; 
-;; This makes emacs say every command you perform out loud, using
+;; This makes Emacs say every command you perform out loud, using
 ;; text-to-speech. There's really no point.
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -53,18 +53,19 @@
     previous-line
     self-insert-command
     )
-  "These comands will not be spoken out loud, as they occur so
-  frequently and repeatedly.")
+  "These comands will not be spoken out loud, as they occur so frequently and repeatedly.")
 
 (defvar say-what-im-doing-shell-command "say"
-  "This is the command-line program that will be used for text-to-speech")
+  "This is the command-line program that will be used for text-to-speech.")
 
 (defun say-what-im-doing-command-hook ()
+  "This is the function that will be added to `post-command-hook'."
   (if (not (member this-command say-what-im-doing-common-commands))
       (start-process "my_process"
                      nil say-what-im-doing-shell-command
                      (replace-regexp-in-string "-" " " (format "%s" this-command)))))
 
+;;;###autoload
 (define-minor-mode say-what-im-doing-mode
   "This is a mode to make emacs say every command you invoke out
   loud. This uses OS X's \"say\" by default, but can be
