@@ -5,11 +5,11 @@
 ;; Author: Benaiah Mischenko
 ;; Maintainer: Benaiah Mischenko
 ;; Created: Tue May 10 2016
-;; Version: 0.1
+;; Version: 0.2
 ;; Package-Requires: ()
-;; Last-Updated: Tue May 10 2016
+;; Last-Updated: Tue May 12 2016
 ;;           By: Benaiah Mischenko
-;;     Update #: 0
+;;     Update #: 1
 ;; URL: http://github.com/benaiah/say-what-im-doing
 ;; Doc URL: http://github.com/benaiah/say-what-im-doing
 ;; Keywords: text to speech, dumb, funny
