@@ -77,7 +77,7 @@
       (add-hook 'post-command-hook 'say-what-im-doing-command-hook)
     (remove-hook 'post-command-hook 'say-what-im-doing-command-hook)))
 
-(provide 'say-what-im-doing-mode)
+(provide 'say-what-im-doing)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; say-what-im-doing.el ends here
