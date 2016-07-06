@@ -55,14 +55,22 @@
     )
   "These comands will not be spoken out loud, as they occur so frequently and repeatedly.")
 
-(defvar say-what-im-doing-shell-command "say"
-  "This is the command-line program that will be used for text-to-speech.")
+(defcustom say-what-im-doing-shell-command "say"
+  "This is the command-line program that will be used for text-to-speech."
+  :group 'say-what-im-doing
+  :type 'string)
+
+(defcustom say-what-im-doing-shell-command-options ""
+  "Extra options for command."
+  :group 'say-what-im-doing
+  :type 'string)
 
 (defun say-what-im-doing-command-hook ()
   "This is the function that will be added to `post-command-hook'."
   (if (not (member this-command say-what-im-doing-common-commands))
-      (start-process "my_process"
+      (start-process "say-what-im-doing-process"
                      nil say-what-im-doing-shell-command
+                     say-what-im-doing-shell-command-options
                      (replace-regexp-in-string "-" " " (format "%s" this-command)))))
 
 ;;;###autoload
